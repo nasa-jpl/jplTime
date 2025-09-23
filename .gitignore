@@ -1,0 +1,22 @@
+# Compiled class file
+*.class
+
+# Editor artifacts:
+\#*#
+*~
+*.swp
+
+# OS artifacts:
+**/.DS_Store
+
+# Package Files #
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Build, IDE, and test output folders
+.idea/
+out/
+target/

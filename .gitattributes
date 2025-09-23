@@ -1,0 +1,9 @@
+kernels/mar097.bsp filter=lfs diff=lfs merge=lfs -text
+kernels/de421.bsp filter=lfs diff=lfs merge=lfs -text
+kernels/insight_ls_ops181206_iau2000_v1.bsp filter=lfs diff=lfs merge=lfs -text
+kernels/pck00010.tpc filter=lfs diff=lfs merge=lfs -text
+kernels/insight_lmst_ops181206_v1.tsc filter=lfs diff=lfs merge=lfs -text
+kernels/insight_atls_ops181206_v1.bsp filter=lfs diff=lfs merge=lfs -text
+kernels/m2020_atls_dev00_v3.bsp filter=lfs diff=lfs merge=lfs -text
+kernels/m2020_ls_dev00_iau2000_v3.bsp filter=lfs diff=lfs merge=lfs -text
+src/test/resources/gov/nasa/jpl/**/**/*.cvf filter=lfs diff=lfs merge=lfs -text
