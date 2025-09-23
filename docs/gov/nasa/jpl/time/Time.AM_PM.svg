@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="232px" preserveAspectRatio="none" style="width:194px;height:232px;" version="1.1" viewBox="0 0 194 232" width="194px" zoomAndPan="magnify"><defs><filter height="300%" id="f12z8xu5dir7h8" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[09a009f1f57595cfcd19bbd6ce22d30f]
+class gov.nasa.jpl.time.Time.AM_PM--><a href="Time.AM_PM.html" target="_top" title="Time.AM_PM.html" xlink:actuate="onRequest" xlink:href="Time.AM_PM.html" xlink:show="new" xlink:title="Time.AM_PM.html" xlink:type="simple"><rect fill="#FEFECE" filter="url(#f12z8xu5dir7h8)" height="93.1309" id="gov.nasa.jpl.time.Time.AM_PM" style="stroke: #A80036; stroke-width: 1.5;" width="119" x="25.5" y="105.87"/><ellipse cx="40.5" cy="125.0028" fill="#EB937F" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M44.1143,131.5028 L36.3945,131.5028 L36.3945,119.1097 L44.1143,119.1097 L44.1143,121.2679 L38.8433,121.2679 L38.8433,123.9408 L43.6162,123.9408 L43.6162,126.099 L38.8433,126.099 L38.8433,129.3446 L44.1143,129.3446 Z "/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="87" x="54.5" y="124.4052">Time.AM_PM</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="83" x="56.5" y="137.0263">gov.nasa.jpl.time</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="26.5" x2="143.5" y1="144.1356" y2="144.1356"/><ellipse cx="36.5" cy="155.1356" fill="none" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="17" x="45.5" y="158.7704">AM</text><ellipse cx="36.5" cy="168.0907" fill="none" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="15" x="45.5" y="171.7255">PM</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="26.5" x2="143.5" y1="178.0458" y2="178.0458"/><ellipse cx="36.5" cy="189.0458" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="53" x="45.5" y="192.6805">toInt(): int</text></a><!--MD5=[ab9242ba5a5136a3a022564b84a91515]
+class gov.nasa.jpl.time.Time--><a href="Time.html" target="_top" title="Time.html" xlink:actuate="onRequest" xlink:href="Time.html" xlink:show="new" xlink:title="Time.html" xlink:type="simple"><rect fill="#FEFECE" filter="url(#f12z8xu5dir7h8)" height="38.2656" id="gov.nasa.jpl.time.Time" style="stroke: #A80036; stroke-width: 1.5;" width="115" x="27.5" y="7.6"/><ellipse cx="42.5" cy="26.7328" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M44.9731,32.8759 Q44.3921,33.1747 43.7529,33.3241 Q43.1138,33.4735 42.4082,33.4735 Q39.9014,33.4735 38.5815,31.8217 Q37.2617,30.1698 37.2617,27.0487 Q37.2617,23.9193 38.5815,22.2675 Q39.9014,20.6156 42.4082,20.6156 Q43.1138,20.6156 43.7612,20.765 Q44.4087,20.9145 44.9731,21.2133 L44.9731,23.9359 Q44.3423,23.3549 43.7488,23.0851 Q43.1553,22.8153 42.5244,22.8153 Q41.1797,22.8153 40.4949,23.882 Q39.8101,24.9486 39.8101,27.0487 Q39.8101,29.1405 40.4949,30.2072 Q41.1797,31.2738 42.5244,31.2738 Q43.1553,31.2738 43.7488,31.0041 Q44.3423,30.7343 44.9731,30.1532 Z "/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="34" x="81" y="26.1352">Time</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="83" x="56.5" y="38.7562">gov.nasa.jpl.time</text></a><!--MD5=[43ed657cfc39a123a60bd70888aa4ce4]
+reverse link gov.nasa.jpl.time.Time to gov.nasa.jpl.time.Time.AM_PM--><path d="M85,62.33 C85,75.71 85,91.21 85,105.5 " fill="none" id="gov.nasa.jpl.time.Time&lt;-gov.nasa.jpl.time.Time.AM_PM" style="stroke: #A80036; stroke-width: 1.0;"/><ellipse cx="85" cy="55.77" fill="#FFFFFF" rx="8" ry="8" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="85" x2="85" y1="63.77" y2="47.77"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="77" x2="93" y1="55.77" y2="55.77"/><text fill="#888888" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="182" x="0" y="218.668">UMLDoclet 2.0.8, PlantUML 1.2020.01</text><!--MD5=[a10b26396e83f16285f0d32156fe0b9b]
+@startuml
+    set namespaceSeparator none
+    hide empty fields
+    hide empty methods
+
+    enum "<size:14>Time.AM_PM\n<size:10>gov.nasa.jpl.time" as gov.nasa.jpl.time.Time.AM_PM [[Time.AM_PM.html]] {
+        {static} +AM
+        {static} +PM
+        +toInt(): int
+    }
+
+    class "<size:14>Time\n<size:10>gov.nasa.jpl.time" as gov.nasa.jpl.time.Time [[Time.html]]
+
+    gov.nasa.jpl.time.Time +- - gov.nasa.jpl.time.Time.AM_PM
+
+    center footer UMLDoclet 2.0.8, PlantUML 1.2020.01
+@enduml
+
+PlantUML version 1.2020.01(Sun Feb 16 09:40:32 PST 2020)
+(APACHE source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 17.0.6+10
+Operating System: Mac OS X
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

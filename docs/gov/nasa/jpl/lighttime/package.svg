@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="332px" preserveAspectRatio="none" style="width:312px;height:332px;" version="1.1" viewBox="0 0 312 332" width="312px" zoomAndPan="magnify"><defs><filter height="300%" id="f1wk5aynb7ije4" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[a8d9c162fd0c9cc66763e203411624e4]
+cluster gov.nasa.jpl.lighttime--><polygon fill="#FFFFFF" filter="url(#f1wk5aynb7ije4)" points="22,24.18,182,24.18,189,46.6683,290,46.6683,290,283,22,283,22,24.18" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="22" x2="189" y1="46.6683" y2="46.6683"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="154" x="26" y="39.7152">gov.nasa.jpl.lighttime</text><!--MD5=[453a0482a0cfa6a18731a0cf812ee76c]
+class gov.nasa.jpl.lighttime.SPKLightTimeProvider--><a href="SPKLightTimeProvider.html" target="_top" title="SPKLightTimeProvider.html" xlink:actuate="onRequest" xlink:href="SPKLightTimeProvider.html" xlink:show="new" xlink:title="SPKLightTimeProvider.html" xlink:type="simple"><rect fill="#FEFECE" filter="url(#f1wk5aynb7ije4)" height="73.9102" id="gov.nasa.jpl.lighttime.SPKLightTimeProvider" style="stroke: #A80036; stroke-width: 1.5;" width="236" x="38" y="193.09"/><ellipse cx="89.25" cy="209.09" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M91.7231,215.2331 Q91.1421,215.5319 90.5029,215.6813 Q89.8638,215.8307 89.1582,215.8307 Q86.6514,215.8307 85.3315,214.1789 Q84.0117,212.527 84.0117,209.4059 Q84.0117,206.2765 85.3315,204.6247 Q86.6514,202.9728 89.1582,202.9728 Q89.8638,202.9728 90.5112,203.1222 Q91.1587,203.2716 91.7231,203.5705 L91.7231,206.2931 Q91.0923,205.7121 90.4988,205.4423 Q89.9053,205.1725 89.2744,205.1725 Q87.9297,205.1725 87.2449,206.2392 Q86.5601,207.3058 86.5601,209.4059 Q86.5601,211.4977 87.2449,212.5644 Q87.9297,213.631 89.2744,213.631 Q89.9053,213.631 90.4988,213.3612 Q91.0923,213.0915 91.7231,212.5104 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="125" x="109.75" y="213.6252">SPKLightTimeProvider</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="39" x2="273" y1="225.09" y2="225.09"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="39" x2="273" y1="233.09" y2="233.09"/><ellipse cx="49" cy="244.09" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="195" x="58" y="247.7248">upleg(Time, int, int, String): Duration</text><ellipse cx="49" cy="257.0451" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="210" x="58" y="260.6798">downleg(Time, int, int, String): Duration</text></a><!--MD5=[2b8dace62db5bb64f3b4a87c56d64bb2]
+class gov.nasa.jpl.lighttime.LightTimeProvider--><a href="LightTimeProvider.html" target="_top" title="LightTimeProvider.html" xlink:actuate="onRequest" xlink:href="LightTimeProvider.html" xlink:show="new" xlink:title="LightTimeProvider.html" xlink:type="simple"><rect fill="#FEFECE" filter="url(#f1wk5aynb7ije4)" height="73.9102" id="gov.nasa.jpl.lighttime.LightTimeProvider" style="stroke: #A80036; stroke-width: 1.5;" width="236" x="38" y="59.18"/><ellipse cx="99.75" cy="75.18" fill="#B4A7E5" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M96.1777,71.4451 L96.1777,69.2869 L103.5571,69.2869 L103.5571,71.4451 L101.0918,71.4451 L101.0918,79.5218 L103.5571,79.5218 L103.5571,81.68 L96.1777,81.68 L96.1777,79.5218 L98.6431,79.5218 L98.6431,71.4451 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="104" x="120.25" y="79.7152">LightTimeProvider</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="39" x2="273" y1="91.18" y2="91.18"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="39" x2="273" y1="99.18" y2="99.18"/><ellipse cx="49" cy="110.18" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="210" x="58" y="113.8148">downleg(Time, int, int, String): Duration</text><ellipse cx="49" cy="123.1351" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="195" x="58" y="126.7698">upleg(Time, int, int, String): Duration</text></a><!--MD5=[b5456390edffc684774dd7ef1193e3d6]
+reverse link gov.nasa.jpl.lighttime.LightTimeProvider to gov.nasa.jpl.lighttime.SPKLightTimeProvider--><path d="M156,154.57 C156,167.54 156,180.96 156,192.77 " fill="none" id="gov.nasa.jpl.lighttime.LightTimeProvider&lt;-gov.nasa.jpl.lighttime.SPKLightTimeProvider" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="none" points="149,155.04,156,135.04,163,155.04,149,155.04" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#888888" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="182" x="71" y="318.668">UMLDoclet 2.0.8, PlantUML 1.2020.01</text><!--MD5=[afc3badf5ba4202657a3f427769b5f90]
+@startuml
+    namespace gov.nasa.jpl.lighttime {
+
+        class SPKLightTimeProvider [[SPKLightTimeProvider.html]] {
+            +upleg(Time, int, int, String): Duration
+            +downleg(Time, int, int, String): Duration
+        }
+
+        interface LightTimeProvider [[LightTimeProvider.html]] {
+            {abstract} +downleg(Time, int, int, String): Duration
+            {abstract} +upleg(Time, int, int, String): Duration
+        }
+
+        LightTimeProvider <|.. SPKLightTimeProvider
+    }
+
+    center footer UMLDoclet 2.0.8, PlantUML 1.2020.01
+@enduml
+
+PlantUML version 1.2020.01(Sun Feb 16 09:40:32 PST 2020)
+(APACHE source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 17.0.6+10
+Operating System: Mac OS X
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

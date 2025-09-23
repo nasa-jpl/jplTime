@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="233px" preserveAspectRatio="none" style="width:194px;height:233px;" version="1.1" viewBox="0 0 194 233" width="194px" zoomAndPan="magnify"><defs><filter height="300%" id="ftxkdanq4zfq9" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[354bafb25c0c9007e34772597a492071]
+class gov.nasa.jpl.lighttime--><a href="gov/nasa/jpl/lighttime/package-summary.html" target="_top" title="gov/nasa/jpl/lighttime/package-summary.html" xlink:actuate="onRequest" xlink:href="gov/nasa/jpl/lighttime/package-summary.html" xlink:show="new" xlink:title="gov/nasa/jpl/lighttime/package-summary.html" xlink:type="simple"><rect fill="#FEFECE" filter="url(#ftxkdanq4zfq9)" height="24.1328" id="gov.nasa.jpl.lighttime" style="stroke: #A80036; stroke-width: 1.5;" width="129" x="20.5" y="7.6"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="123" x="23.5" y="24.2016">gov.nasa.jpl.lighttime</text></a><!--MD5=[26d209019d01f2276e3109128108b401]
+class gov.nasa.jpl.time--><a href="gov/nasa/jpl/time/package-summary.html" target="_top" title="gov/nasa/jpl/time/package-summary.html" xlink:actuate="onRequest" xlink:href="gov/nasa/jpl/time/package-summary.html" xlink:show="new" xlink:title="gov/nasa/jpl/time/package-summary.html" xlink:type="simple"><rect fill="#FEFECE" filter="url(#ftxkdanq4zfq9)" height="24.1328" id="gov.nasa.jpl.time" style="stroke: #A80036; stroke-width: 1.5;" width="105" x="32.5" y="91.73"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="99" x="35.5" y="108.3316">gov.nasa.jpl.time</text></a><!--MD5=[7df3abebbb4c8a7557782ab69e20fca2]
+class gov.nasa.jpl.serialization--><a href="gov/nasa/jpl/serialization/package-summary.html" target="_top" title="gov/nasa/jpl/serialization/package-summary.html" xlink:actuate="onRequest" xlink:href="gov/nasa/jpl/serialization/package-summary.html" xlink:show="new" xlink:title="gov/nasa/jpl/serialization/package-summary.html" xlink:type="simple"><rect fill="#FEFECE" filter="url(#ftxkdanq4zfq9)" height="24.1328" id="gov.nasa.jpl.serialization" style="stroke: #A80036; stroke-width: 1.5;" width="149" x="10.5" y="175.87"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="143" x="13.5" y="192.4716">gov.nasa.jpl.serialization</text></a><!--MD5=[a43782e2c773869315e28098a6eca63d]
+link gov.nasa.jpl.lighttime to gov.nasa.jpl.time--><path d="M75.58,32.09 C71.21,45.94 70.71,69.43 74.07,85.51 " fill="none" id="gov.nasa.jpl.lighttime-&gt;gov.nasa.jpl.time" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="75.23,90.01,76.8334,80.2925,73.9702,85.1713,69.0914,82.3082,75.23,90.01" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[de32e97c3dbdf6886f379d710036a749]
+link gov.nasa.jpl.time to gov.nasa.jpl.lighttime--><path d="M94.39,91.48 C98.78,77.67 99.3,54.19 95.96,38.07 " fill="none" id="gov.nasa.jpl.time-&gt;gov.nasa.jpl.lighttime" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="94.8,33.55,93.1628,43.2618,96.0429,38.3931,100.9117,41.2732,94.8,33.55" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[5f2fff1672206c617a689fb365aa4d4a]
+link gov.nasa.jpl.time to gov.nasa.jpl.serialization--><path d="M85,116.22 C85,129.95 85,153.15 85,169.21 " fill="none" id="gov.nasa.jpl.time-&gt;gov.nasa.jpl.serialization" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="85,174.1,89,165.1,85,169.1,81,165.1,85,174.1" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#888888" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="182" x="0" y="219.668">UMLDoclet 2.0.8, PlantUML 1.2020.01</text><!--MD5=[6ce670a7532507c3603cdd9e7a5e9c13]
+@startuml
+    set namespaceSeparator none
+    hide circle
+    hide empty fields
+    hide empty methods
+
+    gov.nasa.jpl.lighttime - -> gov.nasa.jpl.time
+    gov.nasa.jpl.time - -> gov.nasa.jpl.serialization
+    gov.nasa.jpl.time - -> gov.nasa.jpl.lighttime
+
+    class "gov.nasa.jpl.lighttime" [[gov/nasa/jpl/lighttime/package-summary.html]] {
+    }
+    class "gov.nasa.jpl.time" [[gov/nasa/jpl/time/package-summary.html]] {
+    }
+    class "gov.nasa.jpl.serialization" [[gov/nasa/jpl/serialization/package-summary.html]] {
+    }
+
+    center footer UMLDoclet 2.0.8, PlantUML 1.2020.01
+@enduml
+
+PlantUML version 1.2020.01(Sun Feb 16 09:40:32 PST 2020)
+(APACHE source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 17.0.6+10
+Operating System: Mac OS X
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>
