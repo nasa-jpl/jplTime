@@ -1,8 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>gov.nasa.jpl.jplTime</groupId>
-  <artifactId>jplTime</artifactId>
+  <groupId>gov.nasa.jpl</groupId>
+  <artifactId>jpl_time</artifactId>
   <version>1.0-SNAPSHOT</version>
 
   <properties>
@@ -14,7 +14,7 @@
     <repository>
       <id>github</id>
       <name>GitHub Packages</name>
-      <url>https://github.com/nasa-jpl/jplTime</url>
+      <url>https://maven.pkg.github.com/nasa-jpl/jplTime</url>
     </repository>
   </distributionManagement>
 
@@ -45,7 +45,7 @@
   <dependencies>
     <dependency>
       <groupId>gov.nasa.jpl.blackbird</groupId>
-      <artifactId>JNISpice</artifactId>
+      <artifactId>jnispice</artifactId>
       <version>v2022-05</version>
       <scope>system</scope>
       <systemPath>${project.basedir}/lib/JNISpice-v2022-05.jar</systemPath>
