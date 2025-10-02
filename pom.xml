@@ -65,7 +65,7 @@
 
   <dependencies>
     <dependency>
-      <groupId>gov.nasa.jpl.blackbird</groupId>
+      <groupId>gov.nasa.jpl.spice</groupId>
       <artifactId>jnispice</artifactId>
       <version>v2022-05</version>
     </dependency>
