@@ -2,3 +2,5 @@
 This library provides a SPICE-backed object-oriented way to represent Time in Java, as well as Durations which interact with Time object, plus support for epoch-relative times
 
 Javadocs available here: https://nasa-jpl.github.io/jplTime
+
+Extra step required for deploying jar-with-dependencies: run 'dependency_install.sh' before running package or 'mvn deploy'
