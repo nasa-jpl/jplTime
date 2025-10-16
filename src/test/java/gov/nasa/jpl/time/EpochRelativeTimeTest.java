@@ -113,6 +113,11 @@ public class EpochRelativeTimeTest {
             assertEquals(new Time("2014-258T10:38:04"), new Time(new EpochRelativeTime("CRU_comm_002", Duration.ZERO_DURATION)));
             assertEquals(new Time("2014-300T08:00:00"), new Time(new EpochRelativeTime("CRU_coast_004", Duration.ZERO_DURATION)));
 
+            EpochRelativeTime.readEpochCVF("src/test/resources/gov/nasa/jpl/time/cvf/yx302_SCI.r0.cvf");
+            assertEquals(new Time("2029-349T11:45:00"), new Time(new EpochRelativeTime("PB1_DLTERM_096", Duration.ZERO_DURATION)));
+            assertEquals(new Time("2029-349T10:53:25"), new Time(new EpochRelativeTime("SPTG_NADIR_TURN", Duration.ZERO_DURATION)));
+            assertEquals(new Time("2029-349T14:45:00"), new Time(new EpochRelativeTime("IMGA_CADENCE2_START", Duration.ZERO_DURATION)));
+
         } catch (IOException e) {
             fail(e.getMessage());
         }
@@ -120,10 +125,12 @@ public class EpochRelativeTimeTest {
 
     @Test
     public void getEpochCVFString(){
-        String cvfString = EpochRelativeTime.getEpochCVFString(Arrays.asList("test", "Hello_there", "gps_test"), "", true);
+        EpochRelativeTime.addEpoch("relative", new EpochRelativeTime("Hello_there+07:42:00"));
+        String cvfString = EpochRelativeTime.getEpochCVFString(Arrays.asList("test", "Hello_there", "gps_test", "relative"), "", true);
         assertTrue(cvfString.contains("/Hello_there\n\"const\" 2020-001T00:00:00"));
         assertTrue(cvfString.contains("/gps_test\n\"const\" 2021-001T00:00:00"));
         assertTrue(cvfString.indexOf("test") < cvfString.indexOf("gps_test"));
+        assertTrue(cvfString.contains("/relative\n\"const\" Hello_there+07:42:00"));
 
         String cvfString2 = EpochRelativeTime.getEpochCVFString(EpochRelativeTime.getEpochs().keySet(), "MPST\n", false);
         assertTrue(cvfString2.contains("MPST"));
@@ -144,5 +151,15 @@ public class EpochRelativeTimeTest {
         catch(RuntimeException e){
             assertTrue(e.getMessage().contains("could not be parsed into either an absolute or relative time"));
         }
+    }
+
+    @Test
+    public void removeEpoch(){
+        EpochRelativeTime.addEpoch("relative", new EpochRelativeTime("Hello_there+07:42:00"));
+        assertTrue(EpochRelativeTime.getEpochs().containsKey("relative"));
+        assertTrue(EpochRelativeTime.getEpochs().containsKey("Hello_there"));
+        EpochRelativeTime.removeEpoch("Hello_there");
+        assertFalse(EpochRelativeTime.getEpochs().containsKey("relative"));
+        assertFalse(EpochRelativeTime.getEpochs().containsKey("Hello_there"));
     }
 }

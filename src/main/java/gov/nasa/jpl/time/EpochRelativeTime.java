@@ -49,6 +49,13 @@ public class EpochRelativeTime extends Time {
      * @param epochName
      */
     public static void removeEpoch(String epochName){
+        //check if the epoch was used to define others - and remove those too
+        for (Map.Entry<String, Time> entry : epochs.entrySet()) {
+            if (entry.getValue() instanceof EpochRelativeTime
+                && ((EpochRelativeTime) entry.getValue()).epochName.equals(epochName)) {
+                removeEpoch(entry.getKey());
+            }
+        }
         epochs.remove(epochName);
     }
 
@@ -105,7 +112,13 @@ public class EpochRelativeTime extends Time {
                     // epoch value begins with "const"
                     else if(clean_line.startsWith("\"const\" ")) {
                         if(nextEpochName!= null){
-                            epochs.put(nextEpochName, new Time(clean_line.substring(8)));
+                            String timeString = clean_line.substring(8);
+                            Matcher relativeMatcher = EPOCH_RELATIVE_PATTERN.matcher(timeString);
+                            if(relativeMatcher.find()){
+                                epochs.put(nextEpochName, new EpochRelativeTime(timeString));
+                            } else {
+                                epochs.put(nextEpochName, new Time(timeString));
+                            }
                             nextEpochName = null;
                         }
                         else{
@@ -182,7 +195,11 @@ public class EpochRelativeTime extends Time {
         sb.append("$$EOH\n\n");
         for(Map.Entry<String, Time> entry : epochEntries){
             sb.append("/" + entry.getKey() + "\n");
-            sb.append("\"const\" " + entry.getValue().toUTC(6) + "\n");
+            if (entry.getValue() instanceof EpochRelativeTime){
+                sb.append("\"const\" " + ((EpochRelativeTime) entry.getValue()).toString(6) + "\n");
+            } else {
+                sb.append("\"const\" " + entry.getValue().toUTC(6) + "\n");
+            }
             sb.append("\n");
         }
         sb.append("$$EOF\n\n");
@@ -190,7 +207,7 @@ public class EpochRelativeTime extends Time {
     }
 
     // relative time regex including group names and optional spaces - uses existing Duration regex
-    public static String EPOCH_RELATIVE_TIME_REGEX = "(?<epochName>\\w+)\\s*(?<relativeSign>[+-])\\s*(?<offset>" + DURATION_REGEX + ")";
+    public static String EPOCH_RELATIVE_TIME_REGEX = "(?<epochName>[a-zA-Z]+\\w*)\\s*(?<relativeSign>[+-])\\s*(?<offset>" + DURATION_REGEX + ")";
     public static final Pattern EPOCH_RELATIVE_PATTERN = Pattern.compile(EPOCH_RELATIVE_TIME_REGEX);
 
     //</editor-fold>
