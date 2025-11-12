@@ -70,8 +70,8 @@ public class EpochRelativeTime extends Time {
             for (String child : parents.get(epochName)) {
                 removeEpoch(child);
             }
-            parents.get(epochName).clear();
         }
+        parents.remove(epochName);
         epochs.remove(epochName);
     }
 
