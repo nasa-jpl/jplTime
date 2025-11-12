@@ -18,6 +18,17 @@ public class EpochRelativeTime extends Time {
     //<editor-fold desc="static fields and methods that allow epoch processing">
 
     private static Map<String, Time> epochs = new HashMap<>();
+    private static Map<String, List<String>> parents = new HashMap<>();
+
+    private static void registerParentEpoch(String epochName, Time epochTime) {
+        if (epochTime instanceof EpochRelativeTime){
+            String parent = ((EpochRelativeTime) epochTime).epochName;
+            if (!parents.containsKey(parent)) {
+                parents.put(parent, new ArrayList<>());
+            }
+            parents.get(parent).add(epochName);
+        }
+    }
 
     /**
      * Sets a new epochs map for all new EpochRelativeTimes (does not change already existing ones)
@@ -25,6 +36,10 @@ public class EpochRelativeTime extends Time {
      */
     public static void setEpochs(Map<String, Time> epochs){
         EpochRelativeTime.epochs = epochs;
+        //re-create the map of parents
+        for (Map.Entry<String, Time> e : epochs.entrySet()) {
+            registerParentEpoch(e.getKey(), e.getValue());
+        }
     }
 
     /**
@@ -42,6 +57,7 @@ public class EpochRelativeTime extends Time {
      */
     public static void addEpoch(String epochName, Time toInsert){
         epochs.put(epochName, toInsert);
+        registerParentEpoch(epochName, toInsert);
     }
 
     /**
@@ -50,11 +66,11 @@ public class EpochRelativeTime extends Time {
      */
     public static void removeEpoch(String epochName){
         //check if the epoch was used to define others - and remove those too
-        for (Map.Entry<String, Time> entry : epochs.entrySet()) {
-            if (entry.getValue() instanceof EpochRelativeTime
-                && ((EpochRelativeTime) entry.getValue()).epochName.equals(epochName)) {
-                removeEpoch(entry.getKey());
+        if (parents.containsKey(epochName)){
+            for (String child : parents.get(epochName)) {
+                removeEpoch(child);
             }
+            parents.get(epochName).clear();
         }
         epochs.remove(epochName);
     }
