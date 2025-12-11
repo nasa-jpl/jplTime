@@ -95,6 +95,10 @@ public class EpochRelativeTimeTest {
         EpochRelativeTime.addEpoch("meta_relative", new EpochRelativeTime("Hello_there + 02:30:00"));
         assertEquals("2020-001T02:30:45", new EpochRelativeTime("meta_relative+00:00:45").toUTC(0));
         assertEquals("2020-01-01T02:30:45", new EpochRelativeTime("meta_relative+00:00:45").toISOC(0));
+
+        EpochRelativeTime.addEpoch("meta_meta", new EpochRelativeTime("meta_relative + 04:00:00"));
+        assertEquals("2020-001T06:30:45", new EpochRelativeTime("meta_meta+00:00:45").toUTC(0));
+        assertEquals("2020-01-01T06:30:45", new EpochRelativeTime("meta_meta+00:00:45").toISOC(0));
     }
 
     @Test
@@ -118,6 +122,9 @@ public class EpochRelativeTimeTest {
             assertEquals(new Time("2029-349T10:53:25"), new Time(new EpochRelativeTime("SPTG_NADIR_TURN", Duration.ZERO_DURATION)));
             assertEquals(new Time("2029-349T14:45:00"), new Time(new EpochRelativeTime("IMGA_CADENCE2_START", Duration.ZERO_DURATION)));
 
+            EpochRelativeTime.removeEpoch("PB1_DLTERM_096");
+            assertFalse(EpochRelativeTime.getEpochs().containsKey("SPTG_NADIR_TURN"));
+            assertFalse(EpochRelativeTime.getEpochs().containsKey("IMGA_CADENCE2_START"));
         } catch (IOException e) {
             fail(e.getMessage());
         }

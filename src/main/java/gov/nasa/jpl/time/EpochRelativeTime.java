@@ -20,6 +20,12 @@ public class EpochRelativeTime extends Time {
     private static Map<String, Time> epochs = new HashMap<>();
     private static Map<String, List<String>> parents = new HashMap<>();
 
+    /**
+     * Register one epoch as the parent of another.
+     *
+     * @param epochName The name of the child epoch
+     * @param epochTime The parent epoch
+     */
     private static void registerParentEpoch(String epochName, Time epochTime) {
         if (epochTime instanceof EpochRelativeTime){
             String parent = ((EpochRelativeTime) epochTime).epochName;
@@ -131,7 +137,7 @@ public class EpochRelativeTime extends Time {
                             String timeString = clean_line.substring(8);
                             Matcher relativeMatcher = EPOCH_RELATIVE_PATTERN.matcher(timeString);
                             if(relativeMatcher.find()){
-                                epochs.put(nextEpochName, new EpochRelativeTime(timeString));
+                                addEpoch(nextEpochName, new EpochRelativeTime(timeString));
                             } else {
                                 epochs.put(nextEpochName, new Time(timeString));
                             }
