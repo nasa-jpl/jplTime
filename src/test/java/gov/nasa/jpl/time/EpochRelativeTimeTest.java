@@ -120,10 +120,12 @@ public class EpochRelativeTimeTest {
             EpochRelativeTime.readEpochCVF("src/test/resources/gov/nasa/jpl/time/cvf/yx302_SCI.r0.cvf");
             assertEquals(new Time("2029-349T11:45:00"), new Time(new EpochRelativeTime("PB1_DLTERM_096", Duration.ZERO_DURATION)));
             assertEquals(new Time("2029-349T10:53:25"), new Time(new EpochRelativeTime("SPTG_NADIR_TURN", Duration.ZERO_DURATION)));
+            assertEquals(new Time("2029-349T10:55:25"), new Time(new EpochRelativeTime("IMGA_POWER_ON", Duration.ZERO_DURATION)));
             assertEquals(new Time("2029-349T14:45:00"), new Time(new EpochRelativeTime("IMGA_CADENCE2_START", Duration.ZERO_DURATION)));
 
             EpochRelativeTime.removeEpoch("PB1_DLTERM_096");
             assertFalse(EpochRelativeTime.getEpochs().containsKey("SPTG_NADIR_TURN"));
+            assertFalse(EpochRelativeTime.getEpochs().containsKey("IMGA_POWER_ON"));
             assertFalse(EpochRelativeTime.getEpochs().containsKey("IMGA_CADENCE2_START"));
         } catch (IOException e) {
             fail(e.getMessage());
@@ -165,8 +167,10 @@ public class EpochRelativeTimeTest {
         EpochRelativeTime.addEpoch("relative", new EpochRelativeTime("Hello_there+07:42:00"));
         assertTrue(EpochRelativeTime.getEpochs().containsKey("relative"));
         assertTrue(EpochRelativeTime.getEpochs().containsKey("Hello_there"));
+        EpochRelativeTime.addEpoch("meta_relative", new EpochRelativeTime("relative+01:00:00"));
         EpochRelativeTime.removeEpoch("Hello_there");
         assertFalse(EpochRelativeTime.getEpochs().containsKey("relative"));
         assertFalse(EpochRelativeTime.getEpochs().containsKey("Hello_there"));
+        assertFalse(EpochRelativeTime.getEpochs().containsKey("meta_relative"));
     }
 }
