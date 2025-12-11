@@ -124,6 +124,7 @@ public class EpochRelativeTimeTest {
             assertEquals(new Time("2029-349T14:45:00"), new Time(new EpochRelativeTime("IMGA_CADENCE2_START", Duration.ZERO_DURATION)));
 
             EpochRelativeTime.removeEpoch("PB1_DLTERM_096");
+            assertFalse(EpochRelativeTime.getEpochs().containsKey("PB1_DLTERM_096"));
             assertFalse(EpochRelativeTime.getEpochs().containsKey("SPTG_NADIR_TURN"));
             assertFalse(EpochRelativeTime.getEpochs().containsKey("IMGA_POWER_ON"));
             assertFalse(EpochRelativeTime.getEpochs().containsKey("IMGA_CADENCE2_START"));

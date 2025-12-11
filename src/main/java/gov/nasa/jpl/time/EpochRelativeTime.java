@@ -21,10 +21,10 @@ public class EpochRelativeTime extends Time {
     private static Map<String, List<String>> parents = new HashMap<>();
 
     /**
-     * Register one epoch as the parent of another.
+     * Register the dependency between the supplied epochTime and its parent (if one exists).
      *
-     * @param epochName The name of the child epoch
-     * @param epochTime The parent epoch
+     * @param epochName Dependent epoch name
+     * @param epochTime Dependent epoch time
      */
     private static void registerParentEpoch(String epochName, Time epochTime) {
         if (epochTime instanceof EpochRelativeTime){
