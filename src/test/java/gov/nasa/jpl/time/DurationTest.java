@@ -5,6 +5,9 @@ import org.junit.Test;
 import spice.basic.CSPICE;
 import spice.basic.SpiceErrorException;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.regex.Matcher;
 
@@ -184,6 +187,21 @@ public class DurationTest {
         assertEquals(d1.abs(), d1);
         assertEquals(d2.abs(), d1);
         assertNotEquals(d1, d2);
+    }
+
+    @Test
+    public void stddev(){
+        Duration d1 = new Duration("00:06:00");
+        Duration d2 = new Duration("00:02:00");
+        Duration d3 = new Duration("00:03:00");
+        Duration d4 = new Duration("00:01:00");
+        List<Duration> durs = Arrays.asList(d1, d2, d3, d4);
+        assertTrue(new Duration("00:01:52.25").equalToWithin(Duration.stddev(durs), new Duration("00:00:00.01")));
+        assertTrue(new Duration("00:01:52.25").equalToWithin(Duration.stddev(durs, new Duration("00:03:00")), new Duration("00:00:00.01")));
+
+        assertEquals(null, Duration.stddev(new ArrayList<>()));
+        assertEquals(ZERO_DURATION, Duration.stddev(Arrays.asList(d1)));
+
     }
 
     // named differently to avoid Java thinking it's this class's toString method

@@ -1,9 +1,12 @@
 package gov.nasa.jpl.time;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 import gov.nasa.jpl.serialization.ConvertableFromString;
 import org.apache.commons.lang3.time.DurationFormatUtils;
@@ -556,10 +559,37 @@ public class Duration implements Comparable<Duration>, ConvertableFromString {
     /**
      * Returns the largest of a list of Durations. Wraps Collections.max()
      * @param durs Duration objects
-     * @return A duration object
+     * @return A Duration object
      */
     public static Duration max(Duration... durs){
         return Collections.max(Arrays.asList(durs));
+    }
+
+    /**
+     * Returns the standard deviation of the provided Collection of Duration objects
+     * @param durs Collection of Duration objects
+     * @param meanDuration The mean of the Durations, if already pre-computed
+     * @return A Duration object
+     */
+    public static Duration stddev(Collection<Duration> durs, Duration meanDuration){
+        if(durs.size() < 1){
+            return null;
+        }
+        List<Double> values = durs.stream().mapToDouble(Duration::totalSeconds).boxed().collect(Collectors.toList());
+        double mean = meanDuration.totalSeconds();;
+        double sumSquareDeviations = values.stream().reduce(0.0, (subtotal, e) -> subtotal + ((e-mean)*(e-mean)));
+        return SECOND_DURATION.multiply(Math.sqrt(sumSquareDeviations/durs.size()));
+    }
+
+    /**
+     * Returns the standard deviation of the provided Collection of Duration objects. Used if mean not pre-computed
+     * @param durs Collection of Duration objects
+     * @return A Duration object
+     */
+    public static Duration stddev(Collection<Duration> durs) {
+        Duration totalDuration = durs.stream().reduce(Duration.ZERO_DURATION, Duration::add);
+        Duration meanDuration = totalDuration.divide(durs.size());
+        return stddev(durs, meanDuration);
     }
 
     //</editor-fold>
