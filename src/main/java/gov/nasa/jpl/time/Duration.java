@@ -576,7 +576,7 @@ public class Duration implements Comparable<Duration>, ConvertableFromString {
             return null;
         }
         List<Double> values = durs.stream().mapToDouble(Duration::totalSeconds).boxed().collect(Collectors.toList());
-        double mean = meanDuration.totalSeconds();;
+        double mean = meanDuration.totalSeconds();
         double sumSquareDeviations = values.stream().reduce(0.0, (subtotal, e) -> subtotal + ((e-mean)*(e-mean)));
         return SECOND_DURATION.multiply(Math.sqrt(sumSquareDeviations/durs.size()));
     }
