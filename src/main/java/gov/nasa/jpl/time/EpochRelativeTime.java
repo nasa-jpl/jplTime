@@ -18,6 +18,23 @@ public class EpochRelativeTime extends Time {
     //<editor-fold desc="static fields and methods that allow epoch processing">
 
     private static Map<String, Time> epochs = new HashMap<>();
+    private static Map<String, List<String>> parents = new HashMap<>();
+
+    /**
+     * Register the dependency between the supplied epochTime and its parent (if one exists).
+     *
+     * @param epochName Dependent epoch name
+     * @param epochTime Dependent epoch time
+     */
+    private static void registerParentEpoch(String epochName, Time epochTime) {
+        if (epochTime instanceof EpochRelativeTime){
+            String parent = ((EpochRelativeTime) epochTime).epochName;
+            if (!parents.containsKey(parent)) {
+                parents.put(parent, new ArrayList<>());
+            }
+            parents.get(parent).add(epochName);
+        }
+    }
 
     /**
      * Sets a new epochs map for all new EpochRelativeTimes (does not change already existing ones)
@@ -25,6 +42,10 @@ public class EpochRelativeTime extends Time {
      */
     public static void setEpochs(Map<String, Time> epochs){
         EpochRelativeTime.epochs = epochs;
+        //re-create the map of parents
+        for (Map.Entry<String, Time> e : epochs.entrySet()) {
+            registerParentEpoch(e.getKey(), e.getValue());
+        }
     }
 
     /**
@@ -42,6 +63,7 @@ public class EpochRelativeTime extends Time {
      */
     public static void addEpoch(String epochName, Time toInsert){
         epochs.put(epochName, toInsert);
+        registerParentEpoch(epochName, toInsert);
     }
 
     /**
@@ -49,6 +71,13 @@ public class EpochRelativeTime extends Time {
      * @param epochName
      */
     public static void removeEpoch(String epochName){
+        //check if the epoch was used to define others - and remove those too
+        if (parents.containsKey(epochName)){
+            for (String child : parents.get(epochName)) {
+                removeEpoch(child);
+            }
+        }
+        parents.remove(epochName);
         epochs.remove(epochName);
     }
 
@@ -105,7 +134,13 @@ public class EpochRelativeTime extends Time {
                     // epoch value begins with "const"
                     else if(clean_line.startsWith("\"const\" ")) {
                         if(nextEpochName!= null){
-                            epochs.put(nextEpochName, new Time(clean_line.substring(8)));
+                            String timeString = clean_line.substring(8);
+                            Matcher relativeMatcher = EPOCH_RELATIVE_PATTERN.matcher(timeString);
+                            if(relativeMatcher.find()){
+                                addEpoch(nextEpochName, new EpochRelativeTime(timeString));
+                            } else {
+                                epochs.put(nextEpochName, new Time(timeString));
+                            }
                             nextEpochName = null;
                         }
                         else{
@@ -182,7 +217,11 @@ public class EpochRelativeTime extends Time {
         sb.append("$$EOH\n\n");
         for(Map.Entry<String, Time> entry : epochEntries){
             sb.append("/" + entry.getKey() + "\n");
-            sb.append("\"const\" " + entry.getValue().toUTC(6) + "\n");
+            if (entry.getValue() instanceof EpochRelativeTime){
+                sb.append("\"const\" " + ((EpochRelativeTime) entry.getValue()).toString(6) + "\n");
+            } else {
+                sb.append("\"const\" " + entry.getValue().toUTC(6) + "\n");
+            }
             sb.append("\n");
         }
         sb.append("$$EOF\n\n");
@@ -190,7 +229,7 @@ public class EpochRelativeTime extends Time {
     }
 
     // relative time regex including group names and optional spaces - uses existing Duration regex
-    public static String EPOCH_RELATIVE_TIME_REGEX = "(?<epochName>\\w+)\\s*(?<relativeSign>[+-])\\s*(?<offset>" + DURATION_REGEX + ")";
+    public static String EPOCH_RELATIVE_TIME_REGEX = "(?<epochName>[a-zA-Z]+\\w*)\\s*(?<relativeSign>[+-])\\s*(?<offset>" + DURATION_REGEX + ")";
     public static final Pattern EPOCH_RELATIVE_PATTERN = Pattern.compile(EPOCH_RELATIVE_TIME_REGEX);
 
     //</editor-fold>
